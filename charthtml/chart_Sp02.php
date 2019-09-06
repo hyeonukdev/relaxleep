@@ -35,9 +35,13 @@
         while($row = mysqli_fetch_assoc($result)) 
         {
 
-            $str_Time .="'".$row['Time']."',";
-            $str_Value .="'".$row['Sp02']."',";
-           
+            $str_Time .="'".$row['xTime']."',";
+            $str_Value .="'".$row['SpO2']."',";
+
+           if ($row['SpO2']<97)
+            {
+                echo "<script type=\"text/javascript\">alert('산소포화도가 낮습니다');</script>";
+            }
         }
         $str_Time= substr($str_Time,0,-1);
         $str_Value= substr($str_Value,0,-1);

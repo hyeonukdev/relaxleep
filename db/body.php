@@ -29,27 +29,22 @@
         $result = mysqli_query($conn, "SELECT * FROM TemPul_Table");
         
         echo("<table>");
-        echo("<tr><td>번호</td><td>시간</td><td>심박</td><td>산소포화도</td></tr>");
+        echo("<tr><td>번호</td><td>시간</td><td>심박</td><td>체온</td></tr>");
         while($row = mysqli_fetch_assoc($result)) 
         {
           for($i=0; $i<sizeof($result); $i++)
           {
             $count++;
-            echo("<tr><td>".$count."</td><td>".$row['Time']."</td><td>".$row['Pulse']."</td><td>".$row['SpO2']."</td></tr>");
+            echo("<tr><td>".$count."</td><td>".$row['Time']."</td><td>".$row['Temperature']."</td></tr>");
             // 이상알림
-            if($row['Pulse']>150)
+            if($row['Temperature']>39)
             {
-              echo "<script type=\"text/javascript\">alert('심박이 높습니다');</script>";
+              echo "<script type=\"text/javascript\">alert('체온 높습니다');</script>";
             }
-            if($row['Pulse']<50)
+            if($row['Temperature']<35)
             {
-              echo "<script type=\"text/javascript\">alert('심박이 낮습니다');</script>";
+              echo "<script type=\"text/javascript\">alert('체온 낮습니다');</script>";
             }
-            if($row['SpO2']<97)
-            {
-              echo "<script type=\"text/javascript\">alert('산소포화도가 낮습니다');</script>";
-            }
-
           }
         }
         echo("</table>");

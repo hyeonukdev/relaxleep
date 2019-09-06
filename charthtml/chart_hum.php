@@ -35,8 +35,18 @@
         while($row = mysqli_fetch_assoc($result)) 
         {
 
-            $str_Time .="'".$row['Time']."',";
+            $str_Time .="'".$row['xTime']."',";
             $str_Value .="'".$row['Humidity']."',";
+
+            if ($row['Humidity']>70)
+            {
+                echo "<script type=\"text/javascript\">alert('습합니다');</script>";
+            }
+
+            if ($row['Humidity']< 50)
+            {
+                echo "<script type=\"text/javascript\">alert('건조합니다');</script>";
+            }
            
         }
         $str_Time= substr($str_Time,0,-1);

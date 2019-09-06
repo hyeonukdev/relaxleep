@@ -35,9 +35,9 @@
         while($row = mysqli_fetch_assoc($result)) 
         {
 
-            $str_Time .="'".$row['Time']."',";
-            $str_Value .="'".$row['Value']."',";
-           
+            $str_Time .="'".$row['xTime']."',";
+            $str_Value .="'".$row['xValue']."',";
+
         }
         $str_Time= substr($str_Time,0,-1);
         $str_Value= substr($str_Value,0,-1);

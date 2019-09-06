@@ -35,8 +35,13 @@
         while($row = mysqli_fetch_assoc($result)) 
         {
 
-            $str_Time .="'".$row['Time']."',";
-            $str_Value .="'".$row['Value']."',";
+            $str_Time .="'".$row['xTime']."',";
+            $str_Value .="'".$row['xValue']."',";
+
+            if ($row['xValue']>2800)
+            {
+                echo "<script type=\"text/javascript\">alert('환기시켜주세요');</script>";
+            }
            
         }
         $str_Time= substr($str_Time,0,-1);

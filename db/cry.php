@@ -35,8 +35,13 @@
         {
           for($i=0; $i<sizeof($result); $i++)
           {
-          $count++;
-          echo("<tr><td>".$count."</td><td>".$row['Time']."</td><td>".$row['Value']."</td></tr>");
+            $count++;
+            echo("<tr><td>".$count."</td><td>".$row['Time']."</td><td>".$row['Value']."</td></tr>");
+            //이상징후알림
+            if($row['value']>60)
+            {
+              echo "<script type=\"text/javascript\">alert('아이가 깼습니다');</script>";
+            }
           }
         }
         echo("</table>");

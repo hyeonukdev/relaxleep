@@ -35,8 +35,25 @@
         {
           for($i=0; $i<sizeof($result); $i++)
           {
-          $count++;
-          echo("<tr><td>".$count."</td><td>".$row['Time']."</td><td>".$row['Temperature']."</td><td>".$row['Humidity']."</td></tr>");
+            $count++;
+            echo("<tr><td>".$count."</td><td>".$row['Time']."</td><td>".$row['Temperature']."</td><td>".$row['Humidity']."</td></tr>");
+            //이상징후알림
+            if($row['Temperature']>27)
+            {
+              echo "<script type=\"text/javascript\">alert('온도가 높습니다');</script>";
+            }
+            if($row['Temperature']<20)
+            {
+              echo "<script type=\"text/javascript\">alert('온도가 낮습니다');</script>";
+            }
+            if($row['Humidity']>70)
+            {
+              echo "<script type=\"text/javascript\">alert('습도가 높습니다');</script>";
+            }
+            if($row['Humidity']<40)
+            {
+              echo "<script type=\"text/javascript\">alert('습도가 낮습니다');</script>";
+            }
           }
 
         }

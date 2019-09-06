@@ -34,8 +34,13 @@
         {
           for($i=0; $i<sizeof($result); $i++)
           {
-          $count++;
-          echo("<tr><td>".$count."</td><td>".$row['Time']."</td><td>".$row['Value']."</td></tr>");
+            $count++;
+            echo("<tr><td>".$count."</td><td>".$row['Time']."</td><td>".$row['Value']."</td></tr>");
+            //이상징후알림
+            if($row['value']>3000)
+            {
+              echo "<script type=\"text/javascript\">alert('환기가 필요합니다');</script>";
+            }
           }
           
         }

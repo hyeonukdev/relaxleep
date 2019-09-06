@@ -30,21 +30,16 @@
 
         $str_Time="";
         $str_Value="";
-        $result = mysqli_query($conn, "SELECT * FROM TemPul_Table");
+        $result = mysqli_query($conn, "SELECT * FROM TemHum_Table");
 
         while($row = mysqli_fetch_assoc($result)) 
         {
 
             $str_Time .="'".$row['xTime']."',";
-            $str_Value .="'".$row['Pulse']."',";
-
-            if ($row['Pulse']<50)
+            $str_Value .="'".$row['Temperature']."',";
+            if ($row['Temperature']>25)
             {
-                echo "<script type=\"text/javascript\">alert('심박수가 낮습니다');</script>";
-            }
-            if ($row['Pulse']>150)
-            {
-                echo "<script type=\"text/javascript\">alert('심박수가 높습니다');</script>";
+                echo "<script type=\"text/javascript\">alert('온도가 높습니다');</script>";
             }
            
         }
@@ -59,7 +54,7 @@
                     type: 'line'
                 },
                 title: {
-                    text: 'Average Body Pulse'
+                    text: 'Average Temperature'
                 },
                 subtitle: {
                     text: 'Relaxleep'
@@ -69,7 +64,7 @@
                 },
                 yAxis: {
                     title: {
-                        text: 'Pulse (bpm)'
+                        text: 'Temperature (°C)'
                     }
                 },
                 plotOptions: {
@@ -82,7 +77,7 @@
                 },
                 series: [
                     {
-                        name: 'bpm',
+                        name: 'Temperature',
                         data: [<?php echo $str_Value?>]
                     }
             ]

@@ -30,18 +30,30 @@
 
         $str_Time="";
         $str_Value="";
-        $result = mysqli_query($conn, "SELECT * FROM TemHum_Table");
+        $result = mysqli_query($conn, "SELECT * FROM TemPul_Table");
 
         while($row = mysqli_fetch_assoc($result)) 
         {
 
-            $str_Time .="'".$row['Time']."',";
+            $str_Time .="'".$row['xTime']."',";
             $str_Value .="'".$row['Temperature']."',";
+
+            if ($row['Temperature']>39)
+            {
+                echo "<script type=\"text/javascript\">alert('체온이 높습니다');</script>";
+            }
+
+            if ($row['Temperature']<35)
+            {
+                echo "<script type=\"text/javascript\">alert('체온이 낮습니다');</script>";
+            }
            
         }
         $str_Time= substr($str_Time,0,-1);
         $str_Value= substr($str_Value,0,-1);
+        //var_dump($str_Time);
         $str_Value = str_replace('\'','',$str_Value);
+        //var_dump($str_Value);
         ?>
         <script type="text/javascript">
         $(function () {
@@ -50,7 +62,7 @@
                     type: 'line'
                 },
                 title: {
-                    text: 'Average Temperature'
+                    text: 'Average Humidity'
                 },
                 subtitle: {
                     text: 'Relaxleep'
@@ -60,7 +72,7 @@
                 },
                 yAxis: {
                     title: {
-                        text: 'Temperature (°C)'
+                        text: 'Humidity (%)'
                     }
                 },
                 plotOptions: {
