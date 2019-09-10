@@ -35,7 +35,7 @@
           for($i=0; $i<sizeof($result); $i++)
           {
             $count++;
-            echo("<tr><td>".$count."</td><td>".$row['Time']."</td><td>".$row['Value']."</td></tr>");
+            echo("<tr><td>".$count."</td><td>".$row['xTime']."</td><td>".$row['xValue']."</td></tr>");
             //이상징후알림
             if($row['value']>3000)
             {

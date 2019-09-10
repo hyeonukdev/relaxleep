@@ -36,7 +36,7 @@
           for($i=0; $i<sizeof($result); $i++)
           {
             $count++;
-            echo("<tr><td>".$count."</td><td>".$row['Time']."</td><td>".$row['Temperature']."</td><td>".$row['Humidity']."</td></tr>");
+            echo("<tr><td>".$count."</td><td>".$row['xTime']."</td><td>".$row['Temperature']."</td><td>".$row['Humidity']."</td></tr>");
             //이상징후알림
             if($row['Temperature']>27)
             {

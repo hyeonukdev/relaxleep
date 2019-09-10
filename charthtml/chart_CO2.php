@@ -21,7 +21,7 @@
         $mysql_password = '00000000';
         $mysql_db = 'relaxleep';
 
-        $conn = mysqli_connect( $mysql_host, $mysql_user, $mysql_password, $mysql_db );
+        $conn = mysqli_connect( $mysql_host, $mysql_user, $mysql_password, $mysql_db);
         if ( conn == false ) {
             echo "<p>Failure</p>";
         } else {

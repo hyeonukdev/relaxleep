@@ -35,7 +35,7 @@
           for($i=0; $i<sizeof($result); $i++)
           {
             $count++;
-            echo("<tr><td>".$count."</td><td>".$row['Time']."</td><td>".$row['Temperature']."</td></tr>");
+            echo("<tr><td>".$count."</td><td>".$row['xTime']."</td><td>".$row['Temperature']."</td></tr>");
             // 이상알림
             if($row['Temperature']>39)
             {

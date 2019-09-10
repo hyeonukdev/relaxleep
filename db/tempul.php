@@ -35,7 +35,7 @@
           for($i=0; $i<sizeof($result); $i++)
           {
             $count++;
-            echo("<tr><td>".$count."</td><td>".$row['Time']."</td><td>".$row['Pulse']."</td><td>".$row['SpO2']."</td></tr>");
+            echo("<tr><td>".$count."</td><td>".$row['xTime']."</td><td>".$row['Pulse']."</td><td>".$row['SpO2']."</td></tr>");
             // 이상알림
             if($row['Pulse']>150)
             {
